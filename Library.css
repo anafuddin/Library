@@ -1,0 +1,48 @@
+html {
+    font-family: 'Poppins', sans-serif;
+}
+.library {
+    display: grid;
+    gap: 5px;
+    text-align: center;
+}
+
+.page {
+    background-color: aquamarine;
+    border: 3px solid black;
+}
+
+.book-modal {
+    padding: 20px;
+}
+
+input, .submit {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.book-modal:modal {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 1em rgb(0, 0, 0 / 0.3);
+    width: 50ch;
+}
+
+.book-modal::backdrop {
+    background: linear-gradient(45deg, red, blue);
+    opacity: 0.4;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+#isReadDiv {
+  display: flex;
+  justify-content: center;
+}
+
+#read {
+    width: 20px;
+}

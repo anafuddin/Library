@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Library.css">
+    <script src="library.js" defer></script>
+</head>
+<body>
+    <div class="library">
+    </div>
+    <div>
+        <button class="newBookButton">New Book Button</button>
+    </div>
+
+    <dialog class="book-modal"> 
+        <form action="" class="newBook" method="dialog">
+            <h3 style="text-align: center;">Add New Book</h3>
+            <input type="text" id="title" placeholder="Book Title">
+            <input type="text" id="author" placeholder="Author Name">
+            <div id="isReadDiv">
+            <label for="read">Already Read?</label><input type="checkbox" id="read">
+            </div>
+          <button class="submit" type="submit">Submit</button>
+        </form>
+    </dialog>
+</body>
+</html>
