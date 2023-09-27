@@ -3,6 +3,7 @@ const myLibrary = [];
         const newBookButton = document.querySelector('.newBookButton')
         const submit = document.querySelector('.submit')
         const bookModal = document.querySelector('.book-modal')
+        const bookForm = document.querySelector('form');
 
         function Book(title, author, pages, read) {
             this.title = title
@@ -16,13 +17,8 @@ const myLibrary = [];
 
         function addBookToLibrary(book) {
             myLibrary.push(book);
+            showBookOnPage(myLibrary[myLibrary.length - 1]);
         }
-
-        let theTrial = new Book('the trial', 'kafka', 600, 'has been read');
-        let grapesOfWrath = new Book('Grapes of Wrath', 'Steinbeck', 600, 'has been read');
-
-        addBookToLibrary(theTrial);
-        addBookToLibrary(grapesOfWrath)
 
 
         function createPage() {
@@ -47,21 +43,38 @@ const myLibrary = [];
             pageDiv.appendChild(info);
         }
 
- /*       function newBook() {
-            newBookButton.addEventListener('click', () => {
-                addBookToLibrary(new Book(window.prompt(), window.prompt(), window.prompt(), window.prompt()));
-                showBookOnPage(myLibrary);
-            })};
+        function addReadButton(pages) {
+            let readButton = document.createElement('button');
+            if(pages) {
+             readButton.textContent = 'Have Read';
+             readButton.classList.add('read-button-yes');
+             readButton.setAttribute('id', 'read-button');
+             let pageDiv = libraryDiv.lastChild;
+             pageDiv.appendChild(readButton);
+            } else {
+             readButton.textContent = 'Have Not Read';
+             readButton.classList.add('read-button-no')
+             readButton.setAttribute('id', 'read-button');
+             let pageDiv = libraryDiv.lastChild;
+             pageDiv.appendChild(readButton);
+            }
+            readButton.addEventListener('click', (e) => {
+                e.target.classList.toggle('read-button-yes');
+                e.target.classList.toggle('read-button-no');
+                if(e.target.textContent == 'Have Read') {
+                    e.target.textContent = 'Have Not Read';
+                } else {
+                    e.target.textContent = 'Have Read';
+                }
+            })
+         }
 
-        newBook();
-*/
-        function showBookOnPage(library) {
-            library.forEach(book => {
+        function showBookOnPage(book) {
                 createPage();
                 createHeader(book.title);
                 createInfo(book.author);
                 createInfo(book.pages);
-                createInfo(book.read);})
+                addReadButton(book.read);
             }
 
         newBookButton.addEventListener('click', () => {
@@ -72,5 +85,14 @@ const myLibrary = [];
             bookModal.close();
         })
         
-        showBookOnPage(myLibrary);
-        console.log(myLibrary);
+            submit.addEventListener('click', () => {
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const pages = document.getElementById('pageCount').value;
+            const read = document.getElementById('read').checked;
+            let newBook = new Book(title, author, pages, read);
+            addBookToLibrary(newBook);
+            bookForm.reset();
+          })
+        
+        

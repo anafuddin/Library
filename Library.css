@@ -1,15 +1,59 @@
 html {
     font-family: 'Poppins', sans-serif;
+    background: lightblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
 }
 .library {
     display: grid;
-    gap: 5px;
+    gap: 25px;
     text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto-fit, 0.25fr);
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.newBookButton {
+    background-color: azure;
+    border: none;
+    border-radius: 10px;
+    height: 5ch;
+    font-size: large;
+    width: 20ch;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
 .page {
-    background-color: aquamarine;
+    background-color: rgb(51, 169, 35);
     border: 3px solid black;
+    color: white;
+    border-radius: 10px;
+}
+
+.page > button {
+    width: 10vw;
+    height: 7vh;
+    font-size: large;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+}
+
+.read-button-yes {
+    background-color: cornflowerblue;
+}
+
+.read-button-no {
+    background-color: rgb(192, 0, 0);
 }
 
 .book-modal {

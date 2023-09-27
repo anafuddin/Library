@@ -8,17 +8,20 @@
     <script src="library.js" defer></script>
 </head>
 <body>
+    <div class="button-container">
+        <button class="newBookButton">Add New Book</button>
+    </div>
+    
     <div class="library">
     </div>
-    <div>
-        <button class="newBookButton">New Book Button</button>
-    </div>
+    
 
     <dialog class="book-modal"> 
         <form action="" class="newBook" method="dialog">
             <h3 style="text-align: center;">Add New Book</h3>
-            <input type="text" id="title" placeholder="Book Title">
-            <input type="text" id="author" placeholder="Author Name">
+            <input type="text" id="title" placeholder="Book Title" required>
+            <input type="text" id="author" placeholder="Author Name" required>
+            <input type="number" id="pageCount" placeholder="Page Count" required>
             <div id="isReadDiv">
             <label for="read">Already Read?</label><input type="checkbox" id="read">
             </div>
